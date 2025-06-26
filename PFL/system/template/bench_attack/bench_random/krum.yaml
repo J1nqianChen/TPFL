@@ -1,0 +1,61 @@
+# This is a template yaml config file for federated training.
+general:
+  seed: [666, 888, 999, 111, 6666]
+  save_local_model: false
+  check_step: 200  # 不保存，因为现在使用pkl直接保存server类
+  device: 'cuda'
+  device_id: '1'
+
+  eval_gap: 1
+  local_learning_rate: 0.01
+  learning_rate_decay: true
+  learning_rate_decay_gamma: 0.99
+  times: 1    # 重复实验次数
+  dp: false   # 差分隐私
+  dp_sigma: 0
+  save_path: 'models'
+  default_path: '/home/mount/cjq_data/experiments'
+  search: false # 是否搜索遍历执行Baseline
+  prev: 0
+
+
+train:
+  local_epochs: 5
+  global_rounds: 50
+  device_id: 0
+  goal: 'lie_pure'
+  batch_size: 128
+  dataset_name: 'Cifar10_NonIID_Dir0.1_Client20'
+  num_classes: 10
+  num_clients: 20
+
+  model: 'cnn'
+  model_str: 'cnn'
+  algorithm: 'FedAvg'
+  participation_ratio: 1
+
+
+attack:
+  flag: true
+  ratio: 0.2
+  ratio_list: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+  name: 'Random'
+  round: [-1]   # 指定攻击发动的轮次。-1代表每次都发动攻击。
+  algorithm_param:
+    MPAF:
+      fake_frac: 0
+    STAT_OPT:
+      compromise_ratio: 0
+defense:
+  flag: true
+  name: 'krum'
+
+
+
+
+
+
+
+
+
+
