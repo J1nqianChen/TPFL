@@ -69,8 +69,9 @@ signal_fault_path: Optional[str] = None
 
 
 def send_serverchan(title, content):
+    return
     logging.info('推送中')
-    key = 'SCT273804Tqr6P7WPRZnggU0w5LECSFYv8'
+    key = 'PLACEHOLDER'
     url = f'https://sctapi.ftqq.com/{key}.send'
     params = {
         "title": (title),
