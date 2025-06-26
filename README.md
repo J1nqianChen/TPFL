@@ -1,5 +1,5 @@
 
-# TPFL Robust Federated Learning Framework
+# TPFL Trusted Personalized Federated Learning Framework
 
 This repository is built upon the [PFLlib](https://github.com/TsingZ0/PFLlib) framework, with **significant modifications** in the following aspects:
 
